@@ -3,10 +3,14 @@
  */
 
 angular.module('nick-gdg')
-    .controller("HomeCtrl", ['$scope', '$location', '$routeParams',
-        function($scope, $location, $routeParams) {
+    .controller("HomeCtrl", ['$scope', '$location', '$routeParams', 'TestFactory', 'TestsFactory',
+        function($scope, $location, $routeParams, TestFactory, TestsFactory) {
 
-            $scope.message = "Hello World!!!";
+            TestsFactory.query($routeParams, function(tests) {
+                $scope.tests = tests;
+            }, function(error) {
+                console.log(error);
+            });
 
         }
     ]

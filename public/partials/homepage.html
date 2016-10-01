@@ -1,7 +1,8 @@
 <!--<ng-include src="'/partials/common/navigation.html'"></ng-include>-->
 
-<div>
+<div ng-repeat="test in tests">
 
-    {{ message }}
+    {{ test.name }} - {{ test.description }}
 
 </div>
+

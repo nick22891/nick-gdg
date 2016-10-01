@@ -4,71 +4,20 @@
 
 var services = angular.module('nick-gdg.services', ['ngResource']);
 
-//creates a user
-
-/**
- * Factory used in creating and accessing User details
- */
-services.factory('UserFactory', function($resource) {
-    return $resource('/user/:id', {}, {
-        create: { method: 'POST'},
-        show: {method: 'GET',params: {id: '@id'}}
-    });
-});
-
-/**
- * Factory used to get the Platform defaults
- */
-services.factory('PlatformFactory', function($resource) {
-    return $resource('/platform', {}, {
-        show: {method: 'GET'}
-    });
-});
-
-
-/**
- * View all User Roles
- */
-services.factory('RolesFactory', function($resource) {
-    return $resource('/roles', {}, {
-        query: { method: 'GET', isArray: true}
-    });
-});
-
-
-/**
- * Login Endpoint
- */
-services.factory('AuthenticationFactory', function($resource) {
-    return $resource('/login', {}, {
-        login: { method: 'POST'}
-    });
-});
-
-
 /**
  * Get all applications for user
  */
-services.factory('AppsFactory', function($resource) {
-    return $resource('/apps', {}, {
+services.factory('TestsFactory', function($resource) {
+    return $resource('/tests', {}, {
         query: { method: 'GET', isArray: true}
     });
 });
 
 /**
- * Create an application
+ * Create a test
  */
-services.factory('AppFactory', function($resource) {
-    return $resource('/app', {}, {
+services.factory('TestFactory', function($resource) {
+    return $resource('/test', {}, {
         create: { method: 'POST'}
-    });
-});
-
-/**
- * Activates a user account via the token
- */
-services.factory('UserActivationFactory', function($resource) {
-    return $resource('/activate/:token', {}, {
-        activate: {method: 'GET',params: {token: '@token'}}
     });
 });
