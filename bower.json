@@ -32,6 +32,6 @@
     "respond": "^1.4.2",
     "angular-resource": "~1.5.8",
     "angular-route": "~1.5.8",
-    "bootstrap-validator": "~0.11.5",
+    "bootstrap-validator": "~0.11.5"
   }
 }
