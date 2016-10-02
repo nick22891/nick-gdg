@@ -5,7 +5,7 @@
 var services = angular.module('nick-gdg.services', ['ngResource']);
 
 /**
- * Get all applications for user
+ * Get all tests
  */
 services.factory('TestsFactory', function($resource) {
     return $resource('/tests', {}, {
@@ -17,6 +17,24 @@ services.factory('TestsFactory', function($resource) {
  * Create a test
  */
 services.factory('TestFactory', function($resource) {
+    return $resource('/test', {}, {
+        create: { method: 'POST'}
+    });
+});
+
+/**
+ * Get all applications for user
+ */
+services.factory('GoalsFactory', function($resource) {
+    return $resource('/tests', {}, {
+        query: { method: 'GET', isArray: true}
+    });
+});
+
+/**
+ * Create a test
+ */
+services.factory('GoalFactory', function($resource) {
     return $resource('/test', {}, {
         create: { method: 'POST'}
     });

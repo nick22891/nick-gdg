@@ -14,6 +14,14 @@ var routes = require('./routes/index');
 
 var app = express();
 
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 /**
  * This is probably not necessary - but it establishes a connection
  * with the DB on first startup and prints out the tables
@@ -40,9 +48,11 @@ app.use(passport.session());
 */
 
 var test = require('./routes/test/router-test');
+var goal = require('./routes/goal/router-goal');
 
 app.use('/', routes);
 app.use('/', test);
+app.use('/', goal);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -74,6 +84,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
