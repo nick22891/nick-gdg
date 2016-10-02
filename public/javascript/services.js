@@ -26,7 +26,7 @@ services.factory('TestFactory', function($resource) {
  * Get all applications for user
  */
 services.factory('GoalsFactory', function($resource) {
-    return $resource('/tests', {}, {
+    return $resource('/goals', {}, {
         query: { method: 'GET', isArray: true}
     });
 });
@@ -35,7 +35,7 @@ services.factory('GoalsFactory', function($resource) {
  * Create a test
  */
 services.factory('GoalFactory', function($resource) {
-    return $resource('/test', {}, {
+    return $resource('/goal', {}, {
         create: { method: 'POST'}
     });
 });
