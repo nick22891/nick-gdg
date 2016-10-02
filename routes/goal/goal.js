@@ -29,6 +29,21 @@ exports.getGoals = function(req, res, next) {
     })
 };
 
+/*
+This function gets a specific goal
+ */
+
+exports.getGoal = function(req, res, next) {
+    Goal.findById(req.params.id)
+        .exec(function(err, goal) {
+            if(err) {
+                next(err);
+            } else {
+                res.send(goal);
+            }
+        });
+};
+
 exports.createGoal = function(req, res, next) {
     var goal = new Goal(req.body);
 

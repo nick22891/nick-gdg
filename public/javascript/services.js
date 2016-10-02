@@ -35,7 +35,7 @@ services.factory('GoalsFactory', function($resource) {
  * Create a goal, show a specific goal by its ID, or update a specific goal by its ID.
  */
 services.factory('GoalFactory', function($resource) {
-    return $resource('/goal/{id}', {}, {
+    return $resource('/goal/:id', {}, {
         create: { method: 'POST'},
         show: { method: 'GET', params: {id: '@id'} },
         update: { method: 'PUT', params: {id: '@id'} }

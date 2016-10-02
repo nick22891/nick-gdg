@@ -1,0 +1,36 @@
+<ng-include src="'/partials/common/navigation.html'"></ng-include>
+
+<div class="container">
+    <div class="row">
+
+<form>
+    <div class="form-group">
+        <label for="goal">Select the SDG Goal you want to edit: </label>
+        <select class="form-control" id="goal" ng-model="selectedGoal" ng-change="getGoal(selectedGoal)" ng-options="g._id as g.name for g in goals">
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="name">SDG Goal Name:</label>
+        <input ng-model="goal.name" type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <input ng-model="goal.description" type="text" class="form-control" id="description">
+    </div>
+    <div class="form-group">
+        <label for="extended_description">Extended Description:</label>
+        <input ng-model="goal.extended_description" type="text" class="form-control" id="extended_description">
+    </div>
+    <div class="form-group">
+        <label for="image_url">Image Url:</label>
+        <input ng-model="goal.image_url" type="text" class="form-control" id="image_url">
+    </div>
+    <div class="form-group">
+        <label for="color_hex">Color Hex Code:</label>
+        <input ng-model="goal.color_hex" type="text" class="form-control" id="color_hex">
+    </div>
+    <button class="form-control" type="submit" ng-click="updateGoal()" class="btn btn-default">Submit</button>
+</form>
+
+    </div>
+</div>

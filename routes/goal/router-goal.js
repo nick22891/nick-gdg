@@ -7,6 +7,7 @@ var express = require('express'),
     router = express.Router();
 
 router.get('/goals', Goal.getGoals);
+router.get('/goal/:id', Goal.getGoal);
 router.post('/goal', Goal.createGoal);
 router.put('/goal/:id', Goal.updateGoal);
 
