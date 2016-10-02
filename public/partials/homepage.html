@@ -8,7 +8,13 @@
 
         <img class="img-responsive center-block" ng-src="{{ goal.image_url }}"/>
 
-        <p class="goalText center-block">{{ goal.name }} - {{ goal.description }}</p>
+        <div class="panel panel-default">
+            <div class="panel-body goalText"><p style="display:block;">{{ goal.name }} - {{ goal.description }}</p>
+
+            <button type="button" class="btn btn-primary"><b>View Projects</b></button>
+
+            </div>
+        </div>
 
     </div>
 
