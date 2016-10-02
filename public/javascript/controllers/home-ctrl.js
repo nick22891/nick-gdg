@@ -3,10 +3,10 @@
  */
 
 angular.module('nick-gdg')
-    .controller("HomeCtrl", ['$scope', '$location', '$routeParams', 'TestFactory', 'TestsFactory',
-        function($scope, $location, $routeParams, TestFactory, TestsFactory) {
+    .controller("HomeCtrl", ['$scope', '$location', '$routeParams', 'GoalsFactory',
+        function($scope, $location, $routeParams, GoalsFactory) {
 
-            TestsFactory.query($routeParams, function(tests) {
+            GoalsFactory.query($routeParams, function(tests) {
                 $scope.tests = tests;
             }, function(error) {
                 console.log(error);
