@@ -1,10 +1,17 @@
-<!--<ng-include src="'/partials/common/navigation.html'"></ng-include>-->
+<ng-include src="'/partials/common/navigation.html'"></ng-include>
 
-<div ng-repeat="goal in goals">
+<div class="container">
 
-    {{ goal.name }} - {{ goal.description }}
+    <div class="row">
 
-    <img ng-src="{{ goal.image_url }}"/>
+    <div style="margin: 0 auto;" class="col-md-4" ng-repeat="goal in goals">
+
+        <img class="img-responsive center-block" ng-src="{{ goal.image_url }}"/>
+
+        <p class="goalText center-block">{{ goal.name }} - {{ goal.description }}</p>
+
+    </div>
+
+    </div>
 
 </div>
-

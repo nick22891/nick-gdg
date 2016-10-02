@@ -48,7 +48,9 @@ exports.createGoal = function(req, res, next) {
 exports.updateGoal = function(req, res, next) {
     Goal.findOne({ _id: req.params.id }, function (err, goal){
         goal.name = req.body.name;
+        goal.extended_description = req.body.extended_description;
         goal.description = req.body.description;
+        goal.color_hex = req.body.color_hex;
 
         if (goal.image_url !== req.body.image_url) {//update the image if we need to
             cloudinary.uploader.upload(req.body.image_url, function(result) {

@@ -20,7 +20,9 @@ var TestSchema = new Schema({
 var GoalSchema = new Schema({
     name: {type: String, required: true, unique: false},
     description: {type: String},
-    image_url: {type: String}
+    extended_description: {type: String},
+    image_url: {type: String},
+    color_hex: {type: String}
 });
 
 exports.Test = mongoose.model('Test', TestSchema);
