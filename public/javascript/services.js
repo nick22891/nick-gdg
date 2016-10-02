@@ -23,7 +23,7 @@ services.factory('TestFactory', function($resource) {
 });
 
 /**
- * Get all applications for user
+ * Get all the SD Goals
  */
 services.factory('GoalsFactory', function($resource) {
     return $resource('/goals', {}, {
@@ -32,10 +32,12 @@ services.factory('GoalsFactory', function($resource) {
 });
 
 /**
- * Create a test
+ * Create a goal, show a specific goal by its ID, or update a specific goal by its ID.
  */
 services.factory('GoalFactory', function($resource) {
-    return $resource('/goal', {}, {
-        create: { method: 'POST'}
+    return $resource('/goal/{id}', {}, {
+        create: { method: 'POST'},
+        show: { method: 'GET', params: {id: '@id'} },
+        update: { method: 'PUT', params: {id: '@id'} }
     });
 });

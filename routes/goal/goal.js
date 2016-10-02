@@ -45,3 +45,33 @@ exports.createGoal = function(req, res, next) {
     });
 };
 
+exports.updateGoal = function(req, res, next) {
+    Goal.findOne({ _id: req.params.id }, function (err, goal){
+        goal.name = req.body.name;
+        goal.description = req.body.description;
+
+        if (goal.image_url !== req.body.image_url) {//update the image if we need to
+            cloudinary.uploader.upload(req.body.image_url, function(result) {
+                console.log(result);
+                goal.image_url = result.url;
+                goal.save(function(err) {
+                    if(err) {
+                        next(err);
+                    } else {
+                        res.send("Goal Updated");
+                    }
+                });
+            });
+        }
+        else {//or just save the goal if the image url hasn't changed
+            goal.save(function(err) {
+                if(err) {
+                    next(err);
+                } else {
+                    res.send("Goal Updated");
+                }
+            });
+        }
+    });
+};
+

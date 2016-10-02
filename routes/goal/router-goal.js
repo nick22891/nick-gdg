@@ -8,5 +8,6 @@ var express = require('express'),
 
 router.get('/goals', Goal.getGoals);
 router.post('/goal', Goal.createGoal);
+router.put('/goal/:id', Goal.updateGoal);
 
 module.exports = router;
