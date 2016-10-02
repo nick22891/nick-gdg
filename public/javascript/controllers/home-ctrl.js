@@ -6,8 +6,8 @@ angular.module('nick-gdg')
     .controller("HomeCtrl", ['$scope', '$location', '$routeParams', 'GoalsFactory',
         function($scope, $location, $routeParams, GoalsFactory) {
 
-            GoalsFactory.query($routeParams, function(tests) {
-                $scope.tests = tests;
+            GoalsFactory.query($routeParams, function(goals) {
+                $scope.goals = goals;
             }, function(error) {
                 console.log(error);
             });

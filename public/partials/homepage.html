@@ -2,7 +2,9 @@
 
 <div ng-repeat="goal in goals">
 
-    {{ test.name }} - {{ test.description }}
+    {{ goal.name }} - {{ goal.description }}
+
+    <img ng-src="{{ goal.image_url }}"/>
 
 </div>
 
