@@ -20,7 +20,7 @@ cloudinary.config({
  * @param next
  */
 exports.getGoals = function(req, res, next) {
-    Goal.find().exec(function(err, docs) {
+    Goal.find().sort([['number','ascending']]).exec(function(err, docs) {
         if(err) {
             next(err);
         } else {
@@ -63,6 +63,7 @@ exports.createGoal = function(req, res, next) {
 exports.updateGoal = function(req, res, next) {
     Goal.findOne({ _id: req.params.id }, function (err, goal){
         goal.name = req.body.name;
+        goal.number = req.body.number;
         goal.extended_description = req.body.extended_description;
         goal.description = req.body.description;
         goal.color_hex = req.body.color_hex;

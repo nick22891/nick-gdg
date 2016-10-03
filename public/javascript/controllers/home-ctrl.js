@@ -131,9 +131,11 @@ angular.module('nick-gdg')
                     $scope.project.goals.push(item._id);
                 });
                 ProjectFactory.create($scope.project, function(project) {
-                    $location.url('project/' + project._id);
+                    //$location.path('project/' + project._id);
+                    $route.reload();
                 }, function(error) {
                     console.log(error);
+                    $route.reload();
                 });
                 console.log($scope.outputModel);
             }

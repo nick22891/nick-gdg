@@ -18,6 +18,7 @@ var TestSchema = new Schema({
 });
 
 var GoalSchema = new Schema({
+    number: {type: Number},
     name: {type: String, required: true, unique: false},
     description: {type: String},
     extended_description: {type: String},
