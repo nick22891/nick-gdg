@@ -38,21 +38,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
-/*app.use(session({
+app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-*/
 
 var test = require('./routes/test/router-test');
 var goal = require('./routes/goal/router-goal');
+var user = require('./routes/user/router-user');
 
 app.use('/', routes);
 app.use('/', test);
 app.use('/', goal);
+app.use('/', user);
+
+app.get('/logout', function (req, res, next) {
+    req.logout();
+    req.session.destroy();
+    res.redirect("/");
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

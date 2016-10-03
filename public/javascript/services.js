@@ -41,3 +41,42 @@ services.factory('GoalFactory', function($resource) {
         update: { method: 'PUT', params: {id: '@id'} }
     });
 });
+
+/**
+ * Gets current logged in user
+ */
+services.factory('CurrentUserFactory', function($resource) {
+    return $resource('/user', {}, {
+        query: { method: 'GET'}
+    });
+});
+
+/**
+ * Login Endpoint
+ */
+services.factory('AuthenticationFactory', function($resource) {
+    return $resource('/login', {}, {
+        login: { method: 'POST'}
+    });
+});
+
+//creates a user
+
+/**
+ * Factory used in creating and accessing User details
+ */
+services.factory('UserFactory', function($resource) {
+    return $resource('/user/:id', {}, {
+        create: { method: 'POST'},
+        show: {method: 'GET',params: {id: '@id'}}
+    });
+});
+
+/**
+ * Logout Endpoint
+ */
+services.factory('LogoutFactory', function($resource) {
+    return $resource('/logout', {}, {
+        logout: { method: 'GET'}
+    });
+});
