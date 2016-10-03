@@ -49,11 +49,13 @@ app.use(passport.session());
 var test = require('./routes/test/router-test');
 var goal = require('./routes/goal/router-goal');
 var user = require('./routes/user/router-user');
+var project = require('./routes/project/router-project');
 
 app.use('/', routes);
 app.use('/', test);
 app.use('/', goal);
 app.use('/', user);
+app.use('/', project);
 
 app.get('/logout', function (req, res, next) {
     req.logout();

@@ -29,7 +29,7 @@ var ProjectSchema = new Schema({
     name: {type: String, required: true, unique: false},
     description: {type: String},
     image_url: {type: String},
-    creator: { type : Schema.Types.ObjectId, ref: 'User', required: true},
+    creator: { type : Schema.Types.ObjectId, ref: 'User'},
     members: [{ type : Schema.Types.ObjectId, ref: 'User' }],
     goals: [{ type : Schema.Types.ObjectId, ref: 'Goal' }]
 });
