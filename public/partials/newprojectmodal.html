@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<!-- Modal -->
+<div id="createProject" class="modal fade" role="dialog" ng-controller="NewProjectCtrl">
+    <div class="modal-dialog">
 
-</body>
-</html>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Submit A Project</h4>
+            </div>
+            <div class="modal-body">
+                <form id="projectForm" role="form" name="projectForm" action="">
+                    <div class="form-group">
+                        <label for="project_name">Project Name :</label>
+                        <input ng-model="project.name" type="text" class="form-control" id="project_name" placeholder="Project Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input3">Project Description :</label>
+                        <input type="text" ng-model="project.description" type="text" class="form-control" id="input3" placeholder="Project Description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goals">Sustainable Development Goals (select all that apply)</label>
+                        <div
+                                isteven-multi-select
+                                input-model="inputList"
+                                output-model="outputModel"
+                                button-label="image name"
+                                item-label="image name maker"
+                                tick-property="selected"
+                                >
+                        </div>
+                    </div>
+                    <button class="form-control" type="button" ng-click="createProject()" class="btn btn-default">Create Project!</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

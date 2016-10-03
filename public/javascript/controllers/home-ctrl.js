@@ -105,4 +105,34 @@ angular.module('nick-gdg')
 
         }
     ]
+).controller("NewProjectCtrl", ['$scope', '$location', '$routeParams', 'UserFactory', 'GoalsFactory', 'ProjectFactory',
+        function($scope, $location, $routeParams, UserFactory, GoalsFactory, ProjectFactory) {
+
+            GoalsFactory.query($routeParams, function(goals) {
+                $scope.inputList = goals;
+                $scope.inputList.forEach(function (item, index) {
+                    $scope.inputList[index].image = "<img src='" + $scope.inputList[index].image_url + "'/>";
+                });
+            }, function(error) {
+                console.log(error);
+            });
+
+            $scope.outputModel = [];//this will store the array of goals selected using the multi-select
+            $scope.project = {};
+            $scope.project.image_url = "";
+            $scope.project.goals = [];
+
+            $scope.createProject = function () {
+                $scope.outputModel.forEach(function (item, index) {
+                    $scope.project.goals.push(item._id);
+                });
+                ProjectFactory.create($scope.project, function(project) {
+                    $location.url('project/' + project._id);
+                }, function(error) {
+                    console.log(error);
+                });
+                console.log($scope.outputModel);
+            }
+        }
+    ]
 );

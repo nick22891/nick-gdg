@@ -2,7 +2,7 @@
  * Created by matjames007 on 9/10/16.
  */
 
-angular.module('nick-gdg', ["ngRoute", "nick-gdg.services"]).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+angular.module('nick-gdg', ["ngRoute", "nick-gdg.services", "isteven-multi-select"]).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/', {templateUrl: '../partials/homepage.html', controller: 'HomeCtrl'});
     $routeProvider.when('/goals/edit', {templateUrl: '../partials/editgoals.html', controller: 'GoalEditCtrl'});
     $routeProvider.when('/login', {templateUrl: '../partials/login.html', controller: 'UserLoginCtrl'});

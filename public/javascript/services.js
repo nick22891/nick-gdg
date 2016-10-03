@@ -80,3 +80,14 @@ services.factory('LogoutFactory', function($resource) {
         logout: { method: 'GET'}
     });
 });
+
+/**
+ * Create a goal, show a specific goal by its ID, or update a specific goal by its ID.
+ */
+services.factory('ProjectFactory', function($resource) {
+    return $resource('/project/:id', {}, {
+        create: { method: 'POST'},
+        show: { method: 'GET', params: {id: '@id'} },
+        update: { method: 'PUT', params: {id: '@id'} }
+    });
+});
