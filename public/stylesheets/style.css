@@ -1,4 +1,8 @@
 .goalText {
-    height:150px;
+    min-height:150px;
     text-align: center;
+}
+
+.projectOwner {
+    font-weight:bold;
 }

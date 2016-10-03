@@ -91,3 +91,12 @@ services.factory('ProjectFactory', function($resource) {
         update: { method: 'PUT', params: {id: '@id'} }
     });
 });
+
+/**
+ * Get all projects that address a specific sustainable development goal
+ */
+services.factory('GoalProjectsFactory', function($resource) {
+    return $resource('/goal/:id/projects', {}, {
+        show: { method: 'GET', params: {id: '@id'}, isArray: true }
+    });
+});

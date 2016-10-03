@@ -12,6 +12,10 @@ angular.module('nick-gdg')
                 console.log(error);
             });
 
+            $scope.viewProjectsForGoal = function (goal_id) {
+                $location.path('goal/' + goal_id + "/projects");
+            }
+
         }
     ]
 ).controller("GoalEditCtrl", ['$scope', '$location', '$routeParams', 'GoalsFactory', 'GoalFactory',
@@ -133,6 +137,17 @@ angular.module('nick-gdg')
                 });
                 console.log($scope.outputModel);
             }
+        }
+    ]
+).controller("ProjectsCtrl", ['$scope', '$route', '$location', '$routeParams', 'GoalProjectsFactory',
+        function($scope, $route, $location, $routeParams, GoalProjectsFactory) {
+
+            GoalProjectsFactory.show({id:$routeParams.id}, function(projects) {
+                $scope.projects = projects;
+            }, function(error) {
+                console.log(error);
+            });
+
         }
     ]
 );

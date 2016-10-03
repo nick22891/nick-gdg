@@ -11,4 +11,6 @@ router.get('/goal/:id', Goal.getGoal);
 router.post('/goal', Goal.createGoal);
 router.put('/goal/:id', Goal.updateGoal);
 
+router.get('/goal/:id/projects', Goal.getProjectsByGoal);
+
 module.exports = router;

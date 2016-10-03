@@ -15,7 +15,7 @@
         <div class="panel panel-default">
             <div class="panel-body goalText"><p style="display:block;">{{ goal.name }} - {{ goal.description }}</p>
 
-            <button type="button" class="btn btn-primary"><b>View Projects</b></button>
+            <button ng-click="viewProjectsForGoal(goal._id)" type="button" class="btn btn-primary"><b>View Projects</b></button>
 
             </div>
         </div>

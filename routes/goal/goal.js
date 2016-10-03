@@ -3,7 +3,7 @@
  */
 
 var Goal = require('../../models/db').Goal;
-
+var Project = require('../../models/db').Project;
 
 var cloudinary = require('cloudinary');
 
@@ -90,5 +90,23 @@ exports.updateGoal = function(req, res, next) {
             });
         }
     });
-};
+}
 
+/**
+ * This function returns all projects associated with a specific goal
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.getProjectsByGoal = function(req, res, next) {
+    Project.find({
+        goals : { $in: [req.params.id] }
+    }).populate('goals creator')
+        .exec(function(err, docs) {
+        if(err) {
+            next(err);
+        } else {
+            res.send(docs);
+        }
+    })
+};

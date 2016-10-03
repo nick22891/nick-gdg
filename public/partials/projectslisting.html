@@ -1,0 +1,35 @@
+<ng-include src="'/partials/common/navigation.html'"></ng-include>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="panel panel-default">
+            <div class="panel-body"><p class="lead">Welcome to our project catalog for initiatives aimed at achieving the <a href="http://www.globalgoals.org/" target="_blank"><b>17 Global Goals for Sustainable Development</b></a> set out by the United Nations! Feel free to browse the exciting projects on display here or submit one of your own (if you <a href="/#/signup"><b>register</b></a>). After registering, you'll also be able to join existing projects as a volunteer and participate in group discussions!</p></div>
+        </div>
+
+        <div style="margin: 0 auto;" class="col-md-12" ng-repeat="project in projects">
+
+            <img class="img-responsive center-block" ng-src="{{ project.image_url }}"/>
+
+            <div class="panel panel-default">
+                <div class="panel-body goalText">
+
+                    <p style="display:block;text-align: left;"><b>Project Name : </b>{{ project.name }}</p>
+
+                    <p style="display:block;text-align: left;"><b>Project Description </b>: {{ project.description }}</p>
+
+                    <p style="display:block;text-align: left;"><b>Sustainable Development Goals Addressed </b>: <span style="margin-right:4px;background-color:#{{g.color_hex}}" class="label label-default" ng-repeat="g in project.goals">{{ g.name }}</span></p>
+
+                    <p style="display:block;text-align: left;"><b>Created by </b>: <a class="projectOwner" href="">{{ project.creator.first_name }} {{ project.creator.last_name }}</a></p>
+
+                    <button type="button" class="btn btn-primary"><b>View Project</b></button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
