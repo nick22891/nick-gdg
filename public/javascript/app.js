@@ -8,6 +8,7 @@ angular.module('nick-gdg', ["ngRoute", "nick-gdg.services", "isteven-multi-selec
     $routeProvider.when('/login', {templateUrl: '../partials/login.html', controller: 'UserLoginCtrl'});
     $routeProvider.when('/signup', {templateUrl: '../partials/signup.html', controller: 'UserSignupCtrl'});
     $routeProvider.when('/logout', {templateUrl: '../partials/homepage.html', controller: 'HomeCtrl'});
+    $routeProvider.when('/projects', {templateUrl: '../partials/projectslisting.html', controller: 'ProjectsCtrl'});
     $routeProvider.when('/goal/:id/projects', {templateUrl: '../partials/projectslisting.html', controller: 'ProjectsCtrl'});
     $routeProvider.otherwise({redirectTo: '/'});
 

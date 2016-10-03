@@ -22,7 +22,8 @@ exports.createProject = function(req, res, next) {
 
     if (req.body.image_url !== "") cloudinary.uploader.upload(req.body.image_url, function(result) {
         console.log(result);
-        project.image_url = result.url;
+        if (result.url !== undefined) project.image_url = result.url;
+        else project.image_url = "";
         project.save(function(err) {
             if(err) {
                 console.log("Error Saving Project");
@@ -47,13 +48,14 @@ exports.createProject = function(req, res, next) {
  * @param next
  */
 exports.getProjects = function(req, res, next) {
-    Project.find().exec(function(err, docs) {
-        if(err) {
-            next(err);
-        } else {
-            res.send(docs);
-        }
-    })
+    Project.find().populate('goals creator')
+        .exec(function(err, docs) {
+            if(err) {
+                next(err);
+            } else {
+                res.send(docs);
+            }
+        })
 };
 
 

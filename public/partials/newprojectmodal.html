@@ -15,8 +15,8 @@
                         <input ng-model="project.name" type="text" class="form-control" id="project_name" placeholder="Project Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="input3">Project Description :</label>
-                        <input type="text" ng-model="project.description" type="text" class="form-control" id="input3" placeholder="Project Description" required>
+                        <label for="description">Project Description :</label>
+                        <input type="text" ng-model="project.description" type="text" class="form-control" id="description" placeholder="Project Description" required>
                     </div>
                     <div class="form-group">
                         <label for="goals">Sustainable Development Goals (select all that apply)</label>
@@ -29,6 +29,10 @@
                                 tick-property="selected"
                                 >
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="image_url">Image Url (square images like you'd use on Instagram please) :</label>
+                        <input type="text" ng-model="project.image_url" type="text" class="form-control" id="image_url" placeholder="Project Description" required>
                     </div>
                     <button class="form-control" type="button" ng-click="createProject()" class="btn btn-default">Create Project!</button>
                 </form>

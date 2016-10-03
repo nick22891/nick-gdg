@@ -92,6 +92,16 @@ services.factory('ProjectFactory', function($resource) {
     });
 });
 
+
+/**
+ * Get all the Projects
+ */
+services.factory('ProjectsFactory', function($resource) {
+    return $resource('/projects', {}, {
+        query: { method: 'GET', isArray: true}
+    });
+});
+
 /**
  * Get all projects that address a specific sustainable development goal
  */

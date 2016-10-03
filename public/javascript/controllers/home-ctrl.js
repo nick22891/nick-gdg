@@ -139,10 +139,17 @@ angular.module('nick-gdg')
             }
         }
     ]
-).controller("ProjectsCtrl", ['$scope', '$route', '$location', '$routeParams', 'GoalProjectsFactory',
-        function($scope, $route, $location, $routeParams, GoalProjectsFactory) {
+).controller("ProjectsCtrl", ['$scope', '$route', '$location', '$routeParams', 'GoalProjectsFactory', 'ProjectsFactory',
+        function($scope, $route, $location, $routeParams, GoalProjectsFactory, ProjectsFactory) {
 
-            GoalProjectsFactory.show({id:$routeParams.id}, function(projects) {
+            //this is for if we're getting projects for a specific goal
+            if ($routeParams.id !== undefined) GoalProjectsFactory.show({id:$routeParams.id}, function(projects) {
+                $scope.projects = projects;
+            }, function(error) {
+                console.log(error);
+            });
+            //this is for if we're just getting all the projects
+            else ProjectsFactory.query($routeParams, function(projects) {
                 $scope.projects = projects;
             }, function(error) {
                 console.log(error);
