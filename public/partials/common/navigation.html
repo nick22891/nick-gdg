@@ -11,10 +11,10 @@
         </ul>
         <ul ng-if="!userLoggedIn" class="nav navbar-nav navbar-right">
             <li>
-                <a href="#/signup">Create Account</a>
+                <a href="#/" data-toggle="modal" data-target="#userSignup">Create Account</a>
             </li>
             <li>
-                <a href="#/login">Log In</a>
+                <a href="/#/" data-toggle="modal" data-target="#userLogin">Log In</a>
             </li>
         </ul>
         <ul ng-if="userLoggedIn" class="nav navbar-nav navbar-right">
@@ -41,4 +41,8 @@
     </div>
 </nav>
 
-<ng-include src="'/partials/newprojectmodal.html'"></ng-include>
+<ng-include src="'/partials/modals/newproject.html'"></ng-include>
+
+<ng-include src="'/partials/modals/login.html'"></ng-include>
+
+<ng-include src="'/partials/modals/signup.html'"></ng-include>

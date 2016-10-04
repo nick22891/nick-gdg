@@ -1,5 +1,14 @@
-<div class="container">
-    <div class="row">
+<!-- Modal -->
+<div id="userSignup" class="modal fade" role="dialog" ng-controller="UserSignupCtrl">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter your credentials : </h4>
+            </div>
+            <div class="modal-body">
         <form id="signupForm" data-toggle="validator" role="form" name="signupForm" method="post" action="" novalidate>
             <div id="name-field" class="row">
                 <div class="col-md-6">
@@ -39,5 +48,11 @@
             </div>
             <button class="form-control" type="submit" ng-click="createUser()" class="btn btn-default">Create Account!</button>
         </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
     </div>
 </div>
