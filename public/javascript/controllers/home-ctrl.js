@@ -63,6 +63,11 @@ angular.module('nick-gdg')
                 console.log(error);
             });
 
+            $scope.isActive = function (viewLocation) {
+                console.log($location.path());
+                return $location.path().indexOf(viewLocation) == 0;;
+            };
+
         }
 ]).controller("UserLoginCtrl", ['$scope', '$location', '$routeParams', '$window',
         'AuthenticationFactory',
