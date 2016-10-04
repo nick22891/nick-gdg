@@ -73,7 +73,7 @@ angular.module('nick-gdg')
             $scope.login = function() {
                 $scope.credentials.password = CryptoJS.SHA1($scope.credentials.password).toString(CryptoJS.enc.Hex);
                 AuthenticationFactory.login($scope.credentials, function(response) {
-                    $location.url('/');
+                    $location.path('/');
                     $window.location.reload();
                 }, function(error) {
                     console.log("incorrect credentials!");
