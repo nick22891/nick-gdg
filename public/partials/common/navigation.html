@@ -9,6 +9,14 @@
             <li><a href="#">About This Initiative</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
+        <ul ng-if="!userLoggedIn" class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#/signup">Create Account</a>
+            </li>
+            <li>
+                <a href="#/login">Log In</a>
+            </li>
+        </ul>
         <ul ng-if="userLoggedIn" class="nav navbar-nav navbar-right">
             <li>
                 <a href="/#/" data-toggle="modal" data-target="#createProject"><b>Submit A Project</b></a>
@@ -28,14 +36,6 @@
                 <!-- /.dropdown-user -->
             </li>
 
-        </ul>
-        <ul ng-if="!userLoggedIn" class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#/signup">Create Account</a>
-                </li>
-                <li>
-                    <a href="#/login">Log In</a>
-                </li>
         </ul>
 
     </div>

@@ -64,9 +64,9 @@ angular.module('nick-gdg')
             });
 
         }
-]).controller("UserLoginCtrl", ['$scope', '$location', '$routeParams',
+]).controller("UserLoginCtrl", ['$scope', '$location', '$routeParams', '$window',
         'AuthenticationFactory',
-        function($scope, $location, $routeParams, AuthenticationFactory) {
+        function($scope, $location, $routeParams, $window, AuthenticationFactory) {
 
             $scope.credentials = {};
 
@@ -74,6 +74,7 @@ angular.module('nick-gdg')
                 $scope.credentials.password = CryptoJS.SHA1($scope.credentials.password).toString(CryptoJS.enc.Hex);
                 AuthenticationFactory.login($scope.credentials, function(response) {
                     $location.url('/');
+                    $window.location.reload();
                 }, function(error) {
                     console.log("incorrect credentials!");
                 });
